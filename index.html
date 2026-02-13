@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Sahanaj ❤️</title>
+    <style>
+        /* Prothome body hidden thakbe password chhara */
+        body { 
+            margin: 0; padding: 0; 
+            background: #fff5f7; 
+            font-family: 'Arial', sans-serif; 
+            text-align: center; 
+            display: none; 
+            overflow-x: hidden; 
+        }
+        
+        .heart-fall { 
+            position: fixed; top: -10%; 
+            z-index: 999; 
+            animation: fall 4s linear infinite; 
+            color: #ff4d6d; 
+            pointer-events: none;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+
+        .container { padding: 40px 20px; position: relative; z-index: 10; }
+        h1 { color: #d63384; font-size: 2.5rem; margin-bottom: 20px; }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .photo-frame { 
+            padding: 10px; 
+            background: white; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            transition: 0.3s;
+        }
+        .photo-frame:hover { transform: scale(1.05); }
+        .photo-frame img { width: 260px; height: 320px; object-fit: cover; border-radius: 10px; display: block; }
+
+        .letter { 
+            background: white; 
+            max-width: 550px; 
+            margin: 30px auto; 
+            padding: 35px; 
+            border-radius: 25px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            line-height: 1.8; 
+            color: #4a4a4a;
+        }
+
+        .btn { 
+            background: #ff4d6d; color: white; 
+            border: none; padding: 15px 35px; 
+            border-radius: 50px; cursor: pointer; 
+            font-size: 1.1rem; margin-top: 10px; 
+            font-weight: bold; 
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body id="mainBody">
+
+    <div class="container">
+        <h1>I'm So Sorry, Sahanaj 🥺</h1>
+
+        <button class="btn" onclick="playMusic()">Press for Music & Magic ✨</button>
+        
+        <audio id="bgMusic" loop>
+            <source src="Music.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="gallery">
+            <div class="photo-frame"><img src="pic1.jpg" alt="Memory 1"></div>
+            <div class="photo-frame"><img src="pic2.jpg" alt="Memory 2"></div>
+            <div class="photo-frame"><img src="pic3.jpg" alt="Memory 3"></div>
+        </div>
+
+        <div class="letter">
+            <p><strong>Hi Sahanaj,</strong></p>
+            <p>Jani amar upore tumi ragi hoye acho. Ami jani amar bhul gulo tomake kosto diyeche. Please amake khoma kore dao.</p>
+            <p>Ei chotto website-ta sudhu tomar jonno baniyechi jate tumi ektu hasho. Tumi chara amar life-er sob kichu faka.</p>
+            <p style="font-size: 1.5rem; color: #ff4d6d;">❤️ I Love You ❤️</p>
+            <p>— Always Yours, Raj</p>
+        </div>
+    </div>
+
+    <script>
+        // Password Protection Fix
+        function checkPass() {
+            var userInput = prompt("Special message for you❤️ [Enter Password]:");
+            
+            // Password logic simplified
+            if (userInput !== null) {
+                var cleanPass = userInput.trim().toLowerCase();
+                if (cleanPass === "love") {
+                    document.getElementById("mainBody").style.display = "block";
+                } else {
+                    alert("Wrong Password! Please type 'love'");
+                    location.reload();
+                }
+            } else {
+                location.reload();
+            }
+        }
+
+        // Auto-run password check
+        checkPass();
+
+        function playMusic() {
+            var audio = document.getElementById("bgMusic");
+            audio.play().catch(function(e) { alert("Click again!"); });
+        }
+
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-fall');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 4500);
+        }, 350);
+    </script>
+</body>
+</html>
